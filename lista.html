@@ -1,0 +1,36 @@
+<DOCTYPE html>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+    </head>
+    <body>
+        <p>lista de juegos</p>
+        <p id="demo"></p>
+        <button onclick="agregar()">Agregar a la lista</button>
+      <script>
+    var juegos = ["COD","BATTLEFIELD","PACMAN"];
+    document.getElementById("demo").innerHTML = juegos;
+      function agregar(){
+        var n_juego = prompt("Nombre del juego:");
+        juegos.push(n_juego);
+        document.getElementById("demo").innerHTML = juegos;
+      }
+      function eliminar(){
+        juegos.pop();
+        document.getElementById("demo").innerHTML = juegos;
+      }
+      function actualizar(){
+      var n= prompt("elemento a actualizar");
+     var n_juegos1 = prompt("Nombre del juego");
+       juegos.splice(n,1,n_juegos1);
+       document.getElementById("demo").innerHTML = juegos;
+
+      }
+      </script> <br>
+
+      <button onclick="eliminar()">Eliminar de la lista</button><br>
+      <button onclick="actualizar()">Elemento a actulizar</button>
+    </body>
+  </html>
