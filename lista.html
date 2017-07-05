@@ -3,10 +3,72 @@
   <html>
     <head>
       <meta charset="utf-8">
-      <title></title>
+      <title>Lista de juegos</title>
     </head>
     <body>
-        <p>lista de juegos</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre del Juego</th>
+            <th colspan="2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+          <tr>
+            <td>Mortal Kombat XL</td>
+            <td><button>Editar</button></td>
+            <td><button>Eliminar</button></td>
+          </tr>
+          <tr>
+            <td>Call of Duty</td>
+            <td><button>Editar</button></td>
+            <td><button>Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div>
+        <input type="text" id="nuevo-juego">
+        <button onclick="agregar()">Agregar Juego</button>
+      </div>
+
+      <script>
+
+        function agregar(){
+          var nombre = document.getElementById('nuevo-juego').value;
+          if(!Boolean(nombre))
+            alert('Coloca un nombre del juego');
+          else
+          {
+            var fila = document.createElement('tr');
+            var celdaNombre = document.createElement('td');
+            var celdaEditar = document.createElement('td');
+            var celdaEliminar = document.createElement('td');
+
+            var buttonEditar = document.createElement('button');
+            var buttonEliminar = document.createElement('button');
+
+            celdaNombre.innerHTML = nombre;
+
+            buttonEditar.innerHTML = 'Editar';
+            celdaEditar.appendChild(buttonEditar);
+
+            buttonEliminar.innerHTML = 'Eliminar';
+            celdaEliminar.appendChild(buttonEliminar);
+
+            fila.appendChild(celdaNombre);
+            fila.appendChild(celdaEditar);
+            fila.appendChild(celdaEliminar);
+            
+            var cuerpoTabla = document.getElementById('cuerpo-tabla');
+            cuerpoTabla.appendChild(fila);
+          }
+        }
+        
+      </script>
+
+        <!-- <p>lista de juegos</p>
         <p id="demo"></p>
         <button onclick="agregar()">Agregar a la lista</button>
       <script>
@@ -31,6 +93,6 @@
       </script> <br>
 
       <button onclick="eliminar()">Eliminar de la lista</button><br>
-      <button onclick="actualizar()">Elemento a actulizar</button>
+      <button onclick="actualizar()">Elemento a actulizar</button> -->
     </body>
   </html>
